@@ -28,6 +28,7 @@
     "web": {
       "favicon": "./assets/favicon.png"
     },
-    "description": ""
+    "description": "My first ever app with React Native.",
+    "githubUrl": "https://github.com/nomanoff/MyFirstApp---RN"
   }
 }
