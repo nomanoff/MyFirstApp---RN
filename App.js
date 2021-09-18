@@ -28,10 +28,12 @@ import ListItem from "./app/components/ListItem";
 import ListingsScreen from "./app/screens/ListingsScreen";
 import AccountScreen from "./app/screens/AccountScreen";
 import AppTextInput from "./app/components/AppTextInput";
+import AppPicker from "./app/components/AppPicker";
 
 export default function App() {
   return (
     <Screen>
+      <AppPicker placeholder="Categories" icon="apps" />
       <AppTextInput maxLengt={45} placeholder="Type" icon="lock" />
     </Screen>
   );

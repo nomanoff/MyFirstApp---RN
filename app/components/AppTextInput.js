@@ -31,13 +31,11 @@ const styles = StyleSheet.create({
     marginVertical: 10,
   },
   icon: {
-    marginRight: 3,
+    marginRight: 10,
   },
   textInput: {
     fontSize: 18,
     color: colors.mediumDark,
-    marginLeft: 5,
-    paddingLeft: 2,
   },
 });
 
