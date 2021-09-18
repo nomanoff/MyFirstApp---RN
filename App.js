@@ -27,7 +27,12 @@ import Icon from "./app/components/Icon";
 import ListItem from "./app/components/ListItem";
 import ListingsScreen from "./app/screens/ListingsScreen";
 import AccountScreen from "./app/screens/AccountScreen";
+import AppTextInput from "./app/components/AppTextInput";
 
 export default function App() {
-  return <ListingsScreen />;
+  return (
+    <Screen>
+      <AppTextInput maxLengt={45} placeholder="Type" icon="lock" />
+    </Screen>
+  );
 }

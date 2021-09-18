@@ -2,8 +2,9 @@ export default {
   primary: "#fc5c65",
   secondary: "#4ecdc4",
   dark: "#000",
-  white: "#fff",
+  danger: "#ff5252",
   light: "#f8f4f4",
-  danger: "#ff0900",
-  medium: "grey",
+  medium: "#6e6969",
+  mediumDark: "#0c0c0c",
+  white: "#fff",
 };
