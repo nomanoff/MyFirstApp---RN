@@ -16,7 +16,6 @@ import {
 } from "@react-native-community/hooks";
 
 import Screen from "./app/components/Screen";
-
 import WelcomeScreen from "./app/screens/WelcomeScreen";
 import ViewImageScreen from "./app/screens/ViewImageScreen";
 import AppButton from "./app/components/AppButton";
@@ -29,25 +28,8 @@ import ListingsScreen from "./app/screens/ListingsScreen";
 import AccountScreen from "./app/screens/AccountScreen";
 import AppTextInput from "./app/components/AppTextInput";
 import AppPicker from "./app/components/AppPicker";
-
-const catergories = [
-  { label: "Furniture", value: 1 },
-  { label: "Clothing", value: 2 },
-  { label: "Phones", value: 3 },
-];
+import LoginScreen from "./app/screens/LoginScreen";
 
 export default function App() {
-  const [catergory, setCategory] = useState();
-  return (
-    <Screen>
-      <AppPicker
-        selectedItem={catergory}
-        onSelectItem={(item) => setCategory(item)}
-        items={catergories}
-        placeholder="Categories"
-        icon="apps"
-      />
-      <AppTextInput maxLengt={45} placeholder="Type" icon="lock" />
-    </Screen>
-  );
+  return <LoginScreen />;
 }
