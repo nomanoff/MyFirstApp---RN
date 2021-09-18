@@ -1,4 +1,3 @@
-import { StatusBar } from "expo-status-bar";
 import React from "react";
 import {
   StyleSheet,
@@ -16,44 +15,22 @@ import {
   useDimensions,
 } from "@react-native-community/hooks";
 
-export default function App() {
-  const { landscape } = useDeviceOrientation();
+import WelcomeScreen from "./app/screens/WelcomeScreen";
+import ViewImageScreen from "./app/screens/ViewImageScreen";
+import AppButton from "./app/components/AppButton";
+import Card from "./app/components/Card";
+import ListingDetailsScreen from "./app/screens/ListingDetailsScreen";
+import MessagesScreen from "./app/screens/MessagesScreen";
 
-  return (
-    <View
-      style={{
-        backgroundColor: "#fff",
-        flex: 1,
-      }}
-    >
-      <View
-        style={{
-          backgroundColor: "crimson",
-          width: 100,
-          height: 100,
-        }}
-      />
-      <View
-        style={{
-          backgroundColor: "blueviolet",
-          width: 100,
-          height: 100,
-        }}
-      />
-      <View
-        style={{
-          backgroundColor: "bisque",
-          width: 100,
-          height: 100,
-        }}
-      />
-    </View>
-  );
+export default function App() {
+  return <MessagesScreen />;
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#fff",
+    justifyContent: "center",
+    alignItems: "center",
   },
 });
