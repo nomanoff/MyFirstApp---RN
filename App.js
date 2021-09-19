@@ -21,24 +21,19 @@ import {
 
 import Screen from "./app/components/Screen";
 import ImageInput from "./app/components/ImageInput";
+import ImageInputList from "./app/components/ImageInputList";
+import ListingEditScreen from "./app/screens/ListingEditScreen";
 
 export default function App() {
-  const [image, setImage] = useState(null);
+  const [imageUris, setImageUris] = useState([]);
 
-  const requestUserPermission = async () => {
-    if (Platform.OS !== "web") {
-      const result = await ImagePicker.requestMediaLibraryPermissionsAsync();
-      console.log("Result", result);
-    }
+  const handleAdd = (uri) => {
+    setImageUris([...imageUris, uri]);
   };
 
-  useEffect(() => {
-    requestUserPermission();
-  }, []);
+  const handleRemove = (uri) => {
+    setImageUris(imageUris.filter((imageUri) => imageUri !== uri));
+  };
 
-  return (
-    <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
-      <ImageInput imageUri={image} onChangeImage={(uri) => setImage(uri)} />
-    </View>
-  );
+  return <ListingEditScreen />;
 }
