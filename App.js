@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import * as ImagePicker from "expo-image-picker";
 import {
   StyleSheet,
   Text,
@@ -9,6 +10,7 @@ import {
   TouchableWithoutFeedback,
   Button,
   Alert,
+  Platform,
 } from "react-native";
 import {
   useDeviceOrientation,
@@ -16,22 +18,42 @@ import {
 } from "@react-native-community/hooks";
 
 import Screen from "./app/components/Screen";
-import WelcomeScreen from "./app/screens/WelcomeScreen";
-import ViewImageScreen from "./app/screens/ViewImageScreen";
-import AppButton from "./app/components/AppButton";
-import Card from "./app/components/Card";
-import ListingDetailsScreen from "./app/screens/ListingDetailsScreen";
-import MessagesScreen from "./app/screens/MessagesScreen";
-import Icon from "./app/components/Icon";
-import ListItem from "./app/components/ListItem";
-import ListingsScreen from "./app/screens/ListingsScreen";
-import AccountScreen from "./app/screens/AccountScreen";
-import AppTextInput from "./app/components/AppTextInput";
-import AppPicker from "./app/components/AppPicker";
-import LoginScreen from "./app/screens/LoginScreen";
-import RegisterScreen from "./app/screens/RegisterScreen";
-import ListingEditScreen from "./app/screens/ListingEditScreen";
 
 export default function App() {
-  return <ListingEditScreen />;
+  const [image, setImage] = useState(null);
+
+  const requestUserPermission = async () => {
+    if (Platform.OS !== "web") {
+      const result = await ImagePicker.requestMediaLibraryPermissionsAsync();
+      console.log("Result", result);
+    }
+  };
+
+  useEffect(() => {
+    requestUserPermission();
+  }, []);
+
+  const pickImage = async () => {
+    let result = await ImagePicker.launchImageLibraryAsync({
+      mediaTypes: ImagePicker.MediaTypeOptions.All,
+      allowsEditing: true,
+      aspect: [4, 3],
+      quality: 1,
+    });
+
+    console.log(result);
+
+    if (!result.cancelled) {
+      setImage(result.uri);
+    }
+  };
+
+  return (
+    <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
+      <Button title="Pick an image from camera roll" onPress={pickImage} />
+      {image && (
+        <Image source={{ uri: image }} style={{ width: 200, height: 200 }} />
+      )}
+    </View>
+  );
 }
