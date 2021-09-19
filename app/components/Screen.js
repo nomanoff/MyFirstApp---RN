@@ -5,7 +5,7 @@ import { SafeAreaView, StyleSheet, View } from "react-native";
 function Screen({ children, style }) {
   return (
     <SafeAreaView style={[styles.screen, style]}>
-      <View style={styles.container}>{children}</View>
+      <View style={[styles.view, style]}>{children}</View>
     </SafeAreaView>
   );
 }
@@ -15,8 +15,10 @@ const styles = StyleSheet.create({
     paddingTop: Constants.statusBarHeight,
     flex: 1,
   },
-  container: {
-    padding: 12,
+
+  view: {
+    flex: 1,
+    padding: 10,
   },
 });
 

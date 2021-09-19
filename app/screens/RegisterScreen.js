@@ -1,36 +1,44 @@
 import React from "react";
-import { StyleSheet, Image } from "react-native";
+import { StyleSheet } from "react-native";
 import * as Yup from "yup";
 
 import Screen from "../components/Screen";
-import { AppForm, AppFormField, SubmitBtn } from "../components/forms";
+import {
+  AppForm as Form,
+  AppFormField as FormField,
+  SubmitBtn,
+} from "../components/forms";
 
 const validationSchema = Yup.object().shape({
+  name: Yup.string().required().label("Name"),
   email: Yup.string().required().email().label("Email"),
   password: Yup.string().required().min(4).label("Password"),
 });
 
-function LoginScreen() {
+function RegisterScreen() {
   return (
-    <Screen>
-      <Image style={styles.logo} source={require("../assets/logo-red.png")} />
-
-      <AppForm
-        initialValues={{ email: "", password: "" }}
-        onSubmit={(values) => console.log("Submitted!", values)}
+    <Screen style={styles.container}>
+      <Form
+        initialValues={{ name: "", email: "", password: "" }}
+        onSubmit={(values) => console.log(values)}
         validationSchema={validationSchema}
       >
-        <AppFormField
+        <FormField
+          autoCorrect={false}
+          icon="account"
+          name="name"
+          placeholder="Name"
+        />
+        <FormField
           autoCapitalize="none"
           autoCorrect={false}
           icon="email"
-          name="email"
           keyboardType="email-address"
+          name="email"
           placeholder="Email"
           textContentType="emailAddress"
         />
-
-        <AppFormField
+        <FormField
           autoCapitalize="none"
           autoCorrect={false}
           icon="lock"
@@ -39,21 +47,16 @@ function LoginScreen() {
           secureTextEntry
           textContentType="password"
         />
-
-        <SubmitBtn title="Login" />
-      </AppForm>
+        <SubmitBtn title="Register" />
+      </Form>
     </Screen>
   );
 }
 
 const styles = StyleSheet.create({
-  logo: {
-    width: 80,
-    height: 80,
-    marginTop: 50,
-    marginBottom: 20,
-    alignSelf: "center",
+  container: {
+    padding: 10,
   },
 });
 
-export default LoginScreen;
+export default RegisterScreen;

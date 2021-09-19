@@ -9,20 +9,16 @@ import Screen from "../components/Screen";
 const initialMessages = [
   {
     id: 1,
-    title: "Title 1",
-    description: "Description 1",
+    title:
+      "Title 1 , Title 1Title 1Title 1Title 1Title 1Title 1Title 1Title 1Title 1Title 1Title 1Title 1Title 1Title 1Title 1Title 1Title 1Title 1",
+    description:
+      "Description 1,Description 1,Description 1,Description 1,Description 1,Description 1,Description 1 ",
     image: require("../assets/new_profile.jpg"),
   },
   {
     id: 2,
     title: "Title 2",
     description: "Description 2",
-    image: require("../assets/new_profile.jpg"),
-  },
-  {
-    id: 3,
-    title: "Title 3",
-    description: "Description 3",
     image: require("../assets/new_profile.jpg"),
   },
 ];
